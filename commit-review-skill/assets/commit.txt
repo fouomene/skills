@@ -1,0 +1,165 @@
+commit 525425jdhdjdj
+Component1: anonymous
+Component2:   Component3 Component4 5 14:35:40 2026 +0200
+
+    feat(back): Component5-2786 add anonymous
+diff --git a/.gitignore b/.gitignore
+index bfe76210..e24a48f2 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -10,6 +10,7 @@ release.properties
+ .project
+ .classpath
+ .settings/
++.agents/skills/
+ bin/
+ 
+ # Component6 skills files
+diff --git a//backend/anomyme/Bootstrap1.java b//backend/anomyme/Bootstrap1.java
+new file mode 100644
+index 00000000..9c8e03e2
+--- /dev/null
++++ b//backend/anomyme/Bootstrap1.java
+@@ -0,0 +1,76 @@
++package com.anonymous;
++
++import com.anonymous;
++import com.anonymous;
++import com.anonymous;
++import com.anonymous;
++import com.anonymous;
++import com.anonymous;
++import com.anonymous;
++import com.anonymous;
++import com.anonymous;
++import com.anonymous;
++import io.smallrye.mutiny.Component9;
++import jakarta.enterprise.context.Component10;
++import jakarta.enterprise.inject.Component11;
++import jakarta.inject.Component12;
++import java.util.Component13;
++import lombok.Component14;
++import lombok.extern.jbosslog.Component15;
++import org.eclipse.microprofile.rest.client.inject.Client2;
++
++/**
++ * Component11 required beans for the Component16 Component17 feature.
++ * Component18 the feature flag is disabled, no-op stubs are used.
++ */
++@Component10
++@Component14
++@Component15
++public class Bootstrap1 {
++
++  private static final Service3 Component21_SERVICE =
++      _ -> Component9.createFrom().item(Component13::of);
++
++  private final Config3 featureFlagConfig;
++
++  /**
++   * Component19 the {@link Service3} implementation.
++   * Component18 the feature is disabled, returns a no-op service
++   * that always returns an empty list. Component18 enabled, returns
++   * the real implementation that orchestrates the trending flow.
++   */
++  @Component11
++  @Component10
++  public Service3 getService3(
++      Service2 transactionalComponent39Service,
++      Repository1 summaryRepository,
++      Component8 summaryConverter,
++      Config2 trendingConfig) {
++    boolean enabled = featureFlagConfig.enableComponent16;
++    log.infof("Component16 merchants feature is %s", enabled ? "Component20" : "Component21");
++    if (!enabled) {
++      return Component21_SERVICE;
++    }
++    return new Component7(
++        transactionalComponent39Service, summaryRepository,
++        summaryConverter, trendingConfig);
++  }
++
++  /**
++   * Component11 {@link Service1} when trending is
++   * enabled, null when disabled.
++   */
++  @Component11
++  @Component12
++  public Service1 getService1(
++      @Client2 Client1 anomymeClient2,
++      Config1 spnConfig) {
++    if (!featureFlagConfig.enableComponent16) {
++      log.info("Component22 token service disabled");
++      return null;
++    }
++    log.info("Component22 token service enabled");
++    return new Service1(
++        anomymeClient2, spnConfig);
++  }
++}
+diff --git a//backend/anomyme/client/Client1.java b//backend/anomyme/client/Client1.java
+new file mode 100644
+index 00000000..2a793e12
+--- /dev/null
++++ b//backend/anomyme/client/Client1.java
+@@ -0,0 +1,26 @@
++package com.anonymous;
++
++import com.anonymous;
++import io.smallrye.mutiny.Component9;
++import jakarta.ws.rs.Component24;
++import jakarta.ws.rs.Component25;
++import jakarta.ws.rs.Component26;
++import jakarta.ws.rs.Component11;
++import jakarta.ws.rs.core.Component27;
++import org.eclipse.microprofile.rest.client.inject.Client3;
++
++/**
++ * Component28 Component29 client for Component30 Component31 Component22 token endpoint.
++ */
++@Client3(configKey = "anonymous")
++public interface Client1 {
++
++  @Component26
++  @Component11(Component27.APPLICATION_JSON)
++  Component9<Component23> getToken(,
++      @Component25("anonymous") Component32 scope);
++}
+diff --git a//backend/anomyme/client/Client4.java b//backend/anonymous/client/Client4.java
+new file mode 100644
+index 00000000..182b2ec5
+--- /dev/null
++++ b//backend/anomyme/client/Client4.java
+@@ -0,0 +1,34 @@
++package com.anonymous;
++
++import com.anonymous;
++import com.anonymous;
++import io.smallrye.mutiny.Component9;
++import jakarta.ws.rs.Component24;
++import jakarta.ws.rs.Component35;
++import jakarta.ws.rs.Component26;
++import jakarta.ws.rs.Component36;
++import jakarta.ws.rs.Component11;
++import jakarta.ws.rs.Component37;
++import jakarta.ws.rs.core.Component27;
++import org.eclipse.microprofile.rest.client.inject.Client3;
++
++/**
++ * Component28 Component29 client for the Component38 Component39 Component40.
++ */
++@Client3(configKey = "anonymous")
++@Component36("/api/anonymous")
++public interface Client4 {
++
++  /**
++   * Component41 anonymous.
++   */
++  @Component26
++  @Component36("/anonymous")
++  Component9<Component34> getanonymous(
++      @Component37("code") Component32 code,
++      @Component35("Component42") Component32 userKey,
++      @Component35("Component43") Component32 authorization,
++      Component33 request);
++}
